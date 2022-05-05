@@ -5,6 +5,7 @@
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
+#include <string>
 
 class Game: public QGraphicsView{
     Q_OBJECT
@@ -15,14 +16,14 @@ public:
     QGraphicsScene * scene;
     int sceneWidth;
     int sceneHeight;
+    bool fullscreenState;
+
+    void changeBackground(QString path);
 
 public slots:
     void fullscreen();
     void display();
     void displaySettings();
-    void lowSettings();
-    void mediumSettings();
-    void highSettings();
 };
 
 #endif // GAME_H

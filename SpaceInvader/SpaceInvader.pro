@@ -16,7 +16,7 @@ QMAKE_PROJECT_NAME = widgets_SpaceInvader
 
 # install
 target.path = $$[QT_INSTALL_EXAMPLES]/widgets/widgets/SpaceInvader
-INSTALLS += target
+# INSTALLS += target
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
