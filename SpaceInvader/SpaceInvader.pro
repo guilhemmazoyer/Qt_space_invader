@@ -1,16 +1,19 @@
-QT += core gui
-QT += widgets
+QT += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+TEMPLATE = app
 
 CONFIG += c++17
 
 HEADERS = game.h \
-			button.h
+            button.h \
+            slidersgroup.h
 	
 SOURCES += main.cpp \
-			button.cpp \
-			game.cpp
+            game.cpp \
+            button.cpp \
+            slidersgroup.cpp
 
 QMAKE_PROJECT_NAME = widgets_SpaceInvader
 
