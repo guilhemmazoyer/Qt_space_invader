@@ -5,7 +5,7 @@
 #include <QGraphicsSceneMouseEvent>
 
 class Button: public QObject, public QGraphicsRectItem{
-    Q_OBJECT
+    Q_OBJECT;
 
 public:
     // constructors

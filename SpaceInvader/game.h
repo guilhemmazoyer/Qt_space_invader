@@ -1,12 +1,15 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "enemy.h"
+#include "player.h"
+#include "missile.h"
 #include <string>
 #include <QWidget>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsTextItem>
-#include <QSoundEffect>
+//#include <QSoundEffect>
 #include <QSlider>
 #include <QBoxLayout>
 
@@ -16,9 +19,9 @@ QT_END_NAMESPACE
 class SlidersGroup;
 
 class Game: public QGraphicsView{
-    Q_OBJECT
 
 private:
+    Q_OBJECT
     QSlider *slider;
 
 public:
@@ -28,8 +31,8 @@ public:
     int sceneWidth;
     int sceneHeight;
 
-    QSoundEffect jukebox;
-    QSoundEffect interfaceMusic;
+    //QSoundEffect jukebox;
+    //QSoundEffect interfaceMusic;
     int generalVolume;
     int musicVolume;
     int interfaceVolume;

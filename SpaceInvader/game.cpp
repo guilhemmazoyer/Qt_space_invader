@@ -1,6 +1,5 @@
 #include "game.h"
 #include "button.h"
-#include <windows.h>
 #include <iostream>
 #include <QDebug>
 #include <QTimer>
@@ -14,8 +13,8 @@ Game::Game(QWidget * parent) {
     sceneWidth = displaySize.width();
 
     // sound setup
-    QSoundEffect jukebox;
-    QSoundEffect interfaceMusic;
+    //QSoundEffect jukebox;
+    //QSoundEffect interfaceMusic;
     generalVolume = 100;
     musicVolume = 100;
     interfaceVolume = 100;
@@ -37,13 +36,13 @@ Game::Game(QWidget * parent) {
 }
 
 void Game::display(){
-    setsound("../assets/sounds/menu.wav", 0);
-    jukebox.play();
+    //setsound(":/sounds/menu.wav", 0);
+    //jukebox.play();
 
     // clean up the screen
     scene->clear();
 
-    changeBackground(QString("../assets/images/space.jpg"));
+    changeBackground(QString(":/images/space.jpg"));
 
     // create title text
     QGraphicsTextItem *titleText = new QGraphicsTextItem(QString("Space Invaders"));
@@ -89,13 +88,13 @@ void Game::display(){
 }
 
 void Game::displayMenu(){
-    setsound("../assets/sounds/click_cancel.wav", 1, 1);
-    interfaceMusic.play();
+    //setsound(":/sounds/click_cancel.wav", 1, 1);
+    //interfaceMusic.play();
 
     // clean up the screen
     scene->clear();
 
-    changeBackground(QString("../assets/images/space.jpg"));
+    changeBackground(QString(":/images/space.jpg"));
 
     // create title text
     QGraphicsTextItem *titleText = new QGraphicsTextItem(QString("Space Invaders"));
@@ -141,13 +140,13 @@ void Game::displayMenu(){
 }
 
 void Game::displaySettings(){
-    setsound("../assets/sounds/click2.wav", 1, 1);
-    interfaceMusic.play();
+    //setsound(":/sounds/click2.wav", 1, 1);
+    //interfaceMusic.play();
 
     // clean up the screen
     scene->clear();
 
-    changeBackground(QString("../assets/images/space.jpg"));
+    changeBackground(QString(":/images/space.jpg"));
 
     // create fullscreen button
     qreal b_width = sceneWidth/3;
@@ -197,10 +196,11 @@ void Game::displaySettings(){
     xTitlePos = sceneWidth/2 - musicTitleText->boundingRect().width()/2 - 300;
     musicTitleText->setPos(xTitlePos, yTitlePos);
     scene->addItem(musicTitleText);
-    slider = new QSlider(Qt::Horizontal, this);
+    slider = new QSlider(Qt::Vertical, this);
     slider->setGeometry(10, 60, 150, 20);
     slider->setRange(0, 100);
-    show();
+    slider->setValue(0);
+    connect(slider, SIGNAL(valueChanged(int)), lcd, SLOT(display(int)));
 
         // interface title + slider
     xTitlePos = sceneWidth/2 - interfaceTitleText->boundingRect().width()/2 - 100;
@@ -229,10 +229,15 @@ void Game::displaySettings(){
 }
 
 void Game::launchGame(){
-    setsound("../assets/sounds/click1.wav", 1, 1);
+    /*
+    setsound(":/sounds/click1.wav", 1, 1);
     interfaceMusic.play();
-    setsound("../assets/sounds/level1.wav", 1, 1);
+    setsound(":/sounds/level1.wav", 1, 1);
     jukebox.play();
+    */
+    scene->clear();
+
+    changeBackground(QString(":/images/space.jpg"));
 }
 
 void Game::fullscreen(){
@@ -254,7 +259,7 @@ void Game::changeBackground(QString path){
     space = space.scaled(sceneWidth, sceneHeight, Qt::IgnoreAspectRatio);
     scene->addPixmap(space);
 }
-
+/*
 void Game::setsound(QString path, int type, int loopCount){
     if(!loopCount){
         loopCount = QSoundEffect::Infinite;
@@ -279,7 +284,7 @@ void Game::setsound(QString path, int type, int loopCount){
             break;
     }
 }
-
+*/
 float Game::getMusicVolume(){
     return ((generalVolume/10)*(musicVolume/10))/100;
 }
