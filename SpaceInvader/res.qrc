@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file alias="click.wav">assets/sounds/click.wav</file>
+        <file alias="click1.wav">assets/sounds/click1.wav</file>
+        <file alias="click2.wav">assets/sounds/click2.wav</file>
+        <file alias="click_cancel.wav">assets/sounds/click_cancel.wav</file>
+        <file alias="level1.mp3">assets/sounds/level1.mp3</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file alias="ennemy.png">assets/images/ennemy.png</file>
+        <file alias="missile.png">assets/images/missile.png</file>
+        <file alias="space.jpg">assets/images/space.jpg</file>
+    </qresource>
+</RCC>
