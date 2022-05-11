@@ -16,13 +16,7 @@ SlidersGroup::SlidersGroup(Qt::Orientation orientation, const QString &title,
     scrollBar = new QScrollBar(orientation);
     scrollBar->setFocusPolicy(Qt::StrongFocus);
 
-    dial = new QDial;
-    dial->setFocusPolicy(Qt::StrongFocus);
-
     connect(slider, &QSlider::valueChanged, scrollBar, &QScrollBar::setValue);
-    connect(scrollBar, &QScrollBar::valueChanged, dial, &QDial::setValue);
-    connect(dial, &QDial::valueChanged, slider, &QSlider::setValue);
-    connect(dial, &QDial::valueChanged, this, &SlidersGroup::valueChanged);
 
     QBoxLayout::Direction direction;
 

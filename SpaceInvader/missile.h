@@ -2,12 +2,17 @@
 #define MISSILE_H
 
 #include <QGraphicsPixmapItem>
+#include <QPixmap>
+#include <QObject>
 
-class Missile: public QGraphicsPixmapItem, public QObject{
-    QPixmap pixmap;
+class Missile: public QObject, public QGraphicsPixmapItem{
+    Q_OBJECT
 
 public:
-    Missile(float x, float y);
+    Missile();
+
+public slots:
+    void move();
 };
 
 #endif // MISSILE_H

@@ -1,9 +1,9 @@
 #include <QGraphicsTextItem>
 #include <QBrush>
+#include <QFont>
 #include "button.h"
 
 Button::Button(QString name, float p_width, float p_height, QGraphicsItem *parent): QGraphicsRectItem(parent){
-
 
     // draw the rect
     setRect(0,0,p_width,p_height);
@@ -15,6 +15,7 @@ Button::Button(QString name, float p_width, float p_height, QGraphicsItem *paren
     // draw text
     text = new QGraphicsTextItem(name, this);
     text->setDefaultTextColor(Qt::white);
+    text->setFont(QFont("consolas", 20));
     qreal xPos = rect().width()/2 - text->boundingRect().width()/2;
     qreal yPos = rect().height()/2 - text->boundingRect().height()/2;
     text->setPos(xPos, yPos);

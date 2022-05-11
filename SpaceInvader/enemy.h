@@ -2,12 +2,18 @@
 #define ENEMY_H
 
 #include <QGraphicsPixmapItem>
+#include <QPixmap>
+#include <QObject>
 
-class Enemy: public QGraphicsPixmapItem, public QObject{
-    QPixmap pixmap;
+class Enemy: public QObject, public QGraphicsPixmapItem{
+    Q_OBJECT
 
 public:
-    Enemy(int sceneWidth);
+    Enemy();
+    int speed;
+
+public slots:
+    void move();
 };
 
 #endif // ENEMY_H

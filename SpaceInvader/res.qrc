@@ -1,14 +1,24 @@
 <RCC>
     <qresource prefix="/sounds">
-        <file alias="click.wav">assets/sounds/click.wav</file>
+        <file alias="aliendeath.wav">assets/sounds/aliendeath.wav</file>
+        <file alias="blaster.wav">assets/sounds/blaster.wav</file>
+        <file alias="click_cancel.wav">assets/sounds/click_cancel.wav</file>
         <file alias="click1.wav">assets/sounds/click1.wav</file>
         <file alias="click2.wav">assets/sounds/click2.wav</file>
-        <file alias="click_cancel.wav">assets/sounds/click_cancel.wav</file>
-        <file alias="level1.mp3">assets/sounds/level1.mp3</file>
+        <file alias="explosion.wav">assets/sounds/explosion.wav</file>
+        <file alias="gameover.wav">assets/sounds/gameover.wav</file>
+        <file alias="hurt.wav">assets/sounds/hurt.wav</file>
+        <file alias="level1.wav">assets/sounds/level1.wav</file>
+        <file alias="menu.wav">assets/sounds/menu.wav</file>
+        <file alias="score.wav">assets/sounds/score.wav</file>
+        <file alias="start.wav">assets/sounds/start.wav</file>
+        <file alias="win.wav">assets/sounds/win.wav</file>
     </qresource>
     <qresource prefix="/images">
-        <file alias="ennemy.png">assets/images/ennemy.png</file>
+        <file alias="enemy.png">assets/images/enemy.png</file>
         <file alias="missile.png">assets/images/missile.png</file>
-        <file alias="space.jpg">assets/images/space.jpg</file>
+        <file alias="player.png">assets/images/player.png</file>
+        <file alias="game.jpg">assets/images/game.jpg</file>
+        <file alias="explosion.png">assets/images/explosion.png</file>
     </qresource>
 </RCC>
