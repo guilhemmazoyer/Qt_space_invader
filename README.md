@@ -1,3 +1,3 @@
 # Qt_space_invader
 
-A copy of space invader games using Qt.
+A copy of space invader game using Qt.
