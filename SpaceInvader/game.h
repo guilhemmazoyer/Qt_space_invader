@@ -38,6 +38,7 @@ public:
 
     bool fullscreenState;
     bool isPauseMenuClosed;
+    bool isUnlimited;
     void changeBackground(QString path);
 
     QGraphicsTextItem *pauseTitleText;
@@ -87,6 +88,7 @@ public slots:
     void setPlayerVolume(int newVolume);
     void setEnemyVolume(int newVolume);
     void setDifficulty(int newDifficulty);
+    void setUnlimited(bool newCheckBoxState);
 };
 
 #endif // GAME_H

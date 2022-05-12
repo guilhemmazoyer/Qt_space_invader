@@ -7,6 +7,7 @@
 #include <QScreen>
 #include <QPixmap>
 #include <QSlider>
+#include <QCheckBox>
 #include <QGraphicsProxyWidget>
 
 Game::Game() {
@@ -16,7 +17,9 @@ Game::Game() {
     spaceshipWidthOffset = 41;
     difficulty = 10;
 
+    fullscreenState = true;
     isPauseMenuClosed = true;
+    isUnlimited = false;
 
     // sound setup
     QSoundEffect jukebox;
@@ -191,6 +194,15 @@ void Game::displaySettings(){
     QGraphicsProxyWidget * difficultyItem = scene->addWidget(difficultySlider);
     difficultyItem->setPos(sceneWidth/2 - difficultyItem->boundingRect().width()/2,sceneHeight/4);
     connect(difficultySlider, SIGNAL(valueChanged(int)), this, SLOT(setDifficulty(int)));
+
+    // unlimited option
+    QCheckBox *unlimitedCheckBox = new QCheckBox(QString("Unlimited Mode"));
+    QFont unlimitedCheckBoxFont("consolas", 20);
+    unlimitedCheckBox->setFont(unlimitedCheckBoxFont);
+    unlimitedCheckBox->setChecked(isUnlimited);
+    QGraphicsProxyWidget * unlimitedItem = scene->addWidget(unlimitedCheckBox);
+    unlimitedItem->setPos(sceneWidth/2 - unlimitedItem->boundingRect().width()/2,sceneHeight/3);
+    connect(unlimitedCheckBox, SIGNAL(toggled(bool)), this, SLOT(setUnlimited(bool)));
 
     // sound options
         // text items
@@ -530,6 +542,12 @@ void Game::launchGame(){
     player->setFocus();
     scene->addItem(player);
 
+    // delay between two mouvements
+    QTimer * playerActionsTimer = new QTimer();
+    QObject::connect(playerActionsTimer, SIGNAL(timeout()), player, SLOT(action()));
+    int actionsTimeMs = 100;
+    playerActionsTimer->start(actionsTimeMs);
+
     // create the score
     score = new Score();
     scene->addItem(score);
@@ -696,4 +714,8 @@ void Game::setDifficulty(int newDifficulty){
         difficultyDisplay->setPlainText("normal");
         difficultyDisplay->setDefaultTextColor(Qt::yellow);
     }
+}
+
+void Game::setUnlimited(bool newCheckBoxState){
+    isUnlimited = newCheckBoxState;
 }
