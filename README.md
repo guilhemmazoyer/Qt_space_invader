@@ -1,3 +1,3 @@
 # Qt_space_invader
 
-A copy of space invader game using Qt.
+An adaptation of the game SpaceInvaders using C++ Qt.
