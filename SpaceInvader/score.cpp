@@ -19,7 +19,7 @@ void Score::increase(){
         game->setsound(":/sounds/score.wav", 1, 1);
         game->interfaceJukebox.play();
     }
-    if(getScore() >= 10*(game->difficulty/2)){
+    if(getScore() >= 10+10*(game->difficulty/2)){
         game->displayWin();
     }
 }
